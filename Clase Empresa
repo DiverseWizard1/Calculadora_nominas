@@ -12,19 +12,29 @@ import Sleer1.SLeer1;
  */
 public class Empresa {
 
-    //Datos de la empresa
-    private String domicilio;        //Domicilio de la empresa
-    private String cif;              //Codigo de identificacion fiscal
-    private long ccc;                //Codigo cuenta de cotizacion
+   //Datos de la empresa
+    private String domicilio;           //Domicilio de la empresa
+    private String cif;                 //Codigo de identificacion fiscal
+    private long ccc;                   //Codigo cuenta de cotizacion
+    private String nombre;              //Nombre de la empresa
 
-    public Empresa(String domi, String cifem, long cccoti) {
+    public Empresa(String domi, String cifem, String nom, long cccoti) {
         
         domicilio = domi;
         cif = cifem;
         ccc = cccoti;
+        nombre = nom;
         
     }
 
+    public void setNombreEmp(String nom){
+        nombre = nom;
+    }
+    
+    public String getNombreEmp(){
+        return nombre;
+    }
+    
     public void setDomicilio(String d) {
         domicilio = d;
     }
@@ -48,7 +58,6 @@ public class Empresa {
 
     public long getCcc() {
         return ccc;
-
     }
 
 }
