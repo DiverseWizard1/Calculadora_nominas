@@ -8,7 +8,7 @@ public class Nomina {
     private String liquidacion_final = "30/11/2021";    //Fecha de fin de la liquidación
     private int dia_inicial = 1;                        //Día de inicio de liquidación
     private int dia_final = 30;                         //Día de fin de liquidación
-    private int dia = (dia_final + dia_inicial) + 1;      //Días totales trabajados
+    private int dias = (dia_final + dia_inicial) + 1;    //Días totales trabajados
     private double fProf = 0.1;                         //Porcentaje de Formación profesional       %
     private double irpf = 2;                            //Porcentaje del IRPF                       %
     private double c_comunes = 4.70;                    //Porcentaje de contingencias comunes       %
@@ -24,6 +24,48 @@ public class Nomina {
     //Método constructor
     public Nomina() {
 
+    }
+
+    //Métodos getters y setters
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int totdias) {
+        dias = totdias;
+    }
+    
+    public String getLiquidacion_inicio() {
+        return liquidacion_inicio;
+    }
+
+    public void setLiquidacion_inicio(String liquidacion_inicio) {
+        this.liquidacion_inicio = liquidacion_inicio;
+    }
+
+    public String getLiquidacion_final() {
+        return liquidacion_final;
+    }
+
+    public void setLiquidacion_final(String liquidacion_final) {
+        this.liquidacion_final = liquidacion_final;
+    }
+    
+    public int getDia_inicial() {
+        return dia_inicial;
+    }
+
+    public void setDia_inicial(int dia_inicial) {
+        this.dia_inicial = dia_inicial;
+    }
+
+    public int getDia_final() {
+        return dia_final;
+    }
+
+    public void setDia_final(int dia_final) {
+        this.dia_final = dia_final;
     }
     
     public double getC_com_emp() {
@@ -66,7 +108,6 @@ public class Nomina {
         this.at_ep = at_ep;
     }
 
-    //Métodos getters y setters
     public double getSalarioBase() {
         return salario_base;
     }
@@ -114,6 +155,5 @@ public class Nomina {
     public void setIrpf(double i) {
         irpf = i;
     }
-        
-    }
+}
     
