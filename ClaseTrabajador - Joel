@@ -17,20 +17,30 @@ public class Trabajador {
     //private String fAntig;    //Fecha de antigüedad, no es para la v1
     private short nProf;        //Nivel profesional
     private short aProf;        //Area profesional
+    private String nom_apell;   //Nombre y apellidos del trabajador.
 
     //Método constructor
-    public Trabajador(String dni, int nss, char grup, short nivp, short areap){
+    public Trabajador(String dni, String nom, int nss, char grup, short nivp, short areap){
     
         nif = dni;
         numss = nss;
         gProf = grup;
         nProf = nivp;
         aProf = areap;
+        nom_apell = nom;
     }
     
     //Métodos getter y setter
     public String getNif() {
         return nif;
+    }
+    
+    public void setNombreTra(String nom){
+        nom_apell = nom;
+    }
+    
+    public String getNombreTra(){
+        return nom_apell;
     }
     
     public void setNif(String n){
@@ -69,7 +79,7 @@ public class Trabajador {
         aProf = a;
     }
 
-    /*No son para la versión1
+    /*No son para la versión 1
     
         public String getgCoti() {
             return gCoti;
