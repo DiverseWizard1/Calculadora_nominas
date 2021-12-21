@@ -121,8 +121,8 @@ public class Calculadora_nominas {
         int numcif;
         char letracif;
 
-        letracif = Pedir.soloLetra("\tIntroduzca la LETRA de su cif: ");
-        numcif = Pedir.rangoInt("\tIntroduzca su numero cif (8 dígitos): ", 10000000, 99999999);
+        letracif = Pedir.soloLetra("\tIntroduzca SOLO la LETRA de su cif: ");
+        numcif = Pedir.rangoInt("\tIntroduzca su número cif (8 dígitos): ", 10000000, 99999999);
 
         cif = letracif + "" + numcif;
 
@@ -134,13 +134,9 @@ public class Calculadora_nominas {
     public static long pideCcc() {
 
         long ccc;
-        ccc = Pedir.rangoLong("\tIntroduzca su Código cuenta de cotización (11 dígitos. Introduzca 0 para salir.): ", 0l, 99999999999l);
+        ccc = Pedir.rangoLong("\tIntroduzca su Código cuenta de cotización (15 dígitos. 0 para salir.): ", 0l, 999999999999999l);
 
-        if (ccc == 0) {
-            return ccc;
-        } else {
-            return 11100000000000l + ccc; //Se le suma esa cantidad porque el CCC siempre empieza con 111
-        }
+        return ccc;
     }
 
     //Método para pedir el nombre y los apellidos del trabajador.
@@ -159,9 +155,9 @@ public class Calculadora_nominas {
         int numero = 0;
         char letra = 'x';
 
-        numero = Pedir.rangoInt("\tIntroduce tu DNI (sin letra): ", 1, 99999999);
+        numero = Pedir.rangoInt("\tIntroduce tu DNI (SIN LETRA): ", 1, 99999999);
         SLeer1.limpiar();
-        letra = Pedir.soloLetra("\tIntroduce la letra de tu DNI: ");
+        letra = Pedir.soloLetra("\tIntroduce la LETRA de tu DNI: ");
 
         nif = numero + " " + letra;
 
@@ -319,24 +315,24 @@ public class Calculadora_nominas {
             
             System.out.println("\nDEVENGOS");
             System.out.println("\t1.PERCEPCIONES SALARIALES: ");
-            System.out.println("\n\t\t SALARIO BASE: " + n.getSalarioBase());
-            System.out.println("\t\t P.P.GRATIFICACIONES: " + n.getPlusConvenio() + "\n");
+            System.out.println("\n\t\tSALARIO BASE:\t\t" + Pedir.redondear((n.getSalarioBase()/12), 2));
+            System.out.println("\t\tPLUS CONVENIO:\t\t" + Pedir.redondear((n.getPlusConvenio()/12), 2) + "\n");
+            
+            System.out.println("\n\tA.TOTAL DEVENGADO:\t\t" + tdevengado);
 
             System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             System.out.println("\nDEDUCCIONES");
             System.out.println("\t1.Aportaciones del trabajador a las cotizaciones a la SS y conceptos de recaudación conjunta\n");
-            System.out.println("\t\t CONTINGENCIAS COMUNES:     " + n.getComunes() + "%\t\t" + Pedir.redondear(calcularComunesTrabajador(n), 2));
-            System.out.println("\t\t DESEMPLEO:                 " + n.getDesempleo() + "%\t\t" + Pedir.redondear(calcularDesTrabajador(n), 2));
-            System.out.println("\t\t FORMACIÓN PROFESIONAL:     " + n.getFProf() + "%\t\t" + Pedir.redondear(calcularFPTrabajador(n), 2));
+            System.out.println("\t\tCONTINGENCIAS COMUNES:\t\t" + n.getComunes() + "%\t\t" + Pedir.redondear(calcularComunesTrabajador(n), 2));
+            System.out.println("\t\tDESEMPLEO:\t\t\t" + n.getDesempleo() + "%\t\t" + Pedir.redondear(calcularDesTrabajador(n), 2));
+            System.out.println("\t\tFORMACIÓN PROFESIONAL:\t\t" + n.getFProf() + "%\t\t" + Pedir.redondear(calcularFPTrabajador(n), 2));
 
-            System.out.println("\n\n\tA.TOTAL DEVENGADO:\t\t\t" + tdevengado);
+            System.out.println("\n\t\tB.TOTAL APORTACIONES:\t\t\t\t" + taportaciones);
+            System.out.println("\n\n\t2. I.R.P.F.:\t\t\t\t" + n.getIrpf() + "%\t\t" + Pedir.redondear(calcularIRPFTrabajador(n), 2));
 
-            System.out.println("\n\t1.TOTAL APORTACIONES:\t\t\t" + taportaciones);
-            System.out.println("\t2. I.R.P.F.:\t\t\t\t" + n.getIrpf() + "%\t\t" + Pedir.redondear(calcularIRPFTrabajador(n), 2));
-
-            System.out.println("\n\tB.TOTAL A DEDUCIR:\t\t\t" + Pedir.redondear(calcularTotalDeducir(n), 2));
-            System.out.println("\n\n\tLÍQUIDO TOTAL A PERCIBIR:\t\t" + Pedir.redondear(calcularTotalPercibir(n), 2));
+            System.out.println("\n\t\tTOTAL A DEDUCIR:\t\t\t\t" + Pedir.redondear(calcularTotalDeducir(n), 2));
+            System.out.println("\n\n\tC.LÍQUIDO TOTAL A PERCIBIR:\t" + Pedir.redondear(calcularTotalPercibir(n), 2));
 
             //System.out.println("\n*****************************************************************************************************************************************************************************");
             System.out.println("\n\n===========================================================================================================================================================================");
